@@ -1,0 +1,25 @@
+{
+	"trailingComma": "all",
+	"singleQuote": true,
+	"useTabs": true,
+	"overrides": [
+		{
+			"files": ".prettierrc",
+			"options": {
+				"parser": "json"
+			}
+		},
+		{
+			"files": "package.json",
+			"options": {
+				"useTabs": false
+			}
+		},
+		{
+			"files": "**/*.yml",
+			"options": {
+				"useTabs": false
+			}
+		}
+	]
+}

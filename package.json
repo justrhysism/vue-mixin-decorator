@@ -1,0 +1,45 @@
+{
+  "name": "vue-mixin-decorator",
+  "version": "0.0.0",
+  "description": "Mixin decorators for Vue Component",
+  "main": "lib/vue-mixin-decorator.umd.js",
+  "keywords": [
+    "vue",
+    "typescript",
+    "decorator"
+  ],
+  "author": "justrhysism",
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "tsc -p src/tsconfig.json",
+    "build:umd": "rollup -c",
+    "test": "rollup -c test/rollup.config.js && ava test/decorator.spec.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@types/node": "^8.0.47",
+    "ava": "^0.23.0",
+    "rollup": "^0.50.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-typescript": "^0.8.1",
+    "typescript": "^2.6.1",
+    "vue": "^2.5.3"
+  },
+  "typings": "./lib/vue-mixin-decorator.d.ts",
+  "dependencies": {
+    "vue-class-component": "^6.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justrhysism/vue-mixin-decorator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/justrhysism/vue-mixin-decorator/issues"
+  },
+  "homepage": "https://github.com/justrhysism/vue-mixin-decorator#readme"
+}
