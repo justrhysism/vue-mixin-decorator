@@ -1,6 +1,6 @@
 {
   "name": "vue-mixin-decorator",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "Mixin decorators for Vue Component",
   "main": "dist/vue-mixin-decorator.umd.js",
   "keywords": [
@@ -20,7 +20,8 @@
     "pretest": "tsc",
     "test": "ava",
     "prepublish": "yarn test && yarn run build",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "ava": {
     "babel": "inherit",
@@ -58,10 +59,11 @@
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-typescript": "^0.8.1",
-    "semantic-release": "^12.2.2",
+    "semantic-release": "^12.2.4",
     "sinon": "^4.2.0",
     "typescript": "^2.6.1",
-    "vue": "^2.5.13"
+    "vue": "^2.5.13",
+    "travis-deploy-once": "^4.3.2"
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {
