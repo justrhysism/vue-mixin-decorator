@@ -1,5 +1,7 @@
 # Vue Mixin Decorator
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/justrhysism/vue-mixin-decorator.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/justrhysism/vue-mixin-decorator.svg?branch=master)](https://travis-ci.org/justrhysism/vue-mixin-decorator)
 [![npm](https://img.shields.io/npm/v/vue-mixin-decorator.svg)](https://www.npmjs.com/package/vue-mixin-decorator) 
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
