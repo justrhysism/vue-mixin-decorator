@@ -20,7 +20,7 @@
     "pretest": "tsc",
     "test": "ava",
     "prepublish": "yarn test && yarn run build",
-    "semantic-release": "semantic-release -e ./config/release.config.js",
+    "semantic-release": "semantic-release -e ./release.config.js",
     "travis-deploy-once": "travis-deploy-once"
   },
   "ava": {
