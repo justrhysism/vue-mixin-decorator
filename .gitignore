@@ -61,3 +61,4 @@ lib
 src/*.js
 *.map
 test/*.spec.js
+dist
