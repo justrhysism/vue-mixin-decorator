@@ -23,7 +23,7 @@ MIT License
 ## Install
 
 ```bash
-npm i -S vue-mixin-decorator
+npm install --save-dev vue-mixin-decorator
 ```
 
 ## Usage
