@@ -22,9 +22,14 @@
     "test": "ava",
     "semantic-release": "semantic-release -e ./release.config.js",
     "travis-deploy-once": "travis-deploy-once",
-    "prerelease": "git diff-index --quiet HEAD -- && git checkout dev && git pull && yarn test && yarn run build",
-    "release": "git checkout master && git pull && git merge dev && git push",
-    "postrelease": "git checkout dev && git merge master && git push"
+    "clean-dist": "del dist && del lib",
+    "check-git": "git diff-index --quiet HEAD --",
+    "update-dev": "git checkout dev && git pull",
+    "merge-to-master": "git checkout master && git pull && git merge dev",
+    "master-to-dev": "git checkout dev && git merge master",
+    "prerelease": "yarn run check-git && yarn run clean-dist && yarn run update-dev && yarn test && yarn run build",
+    "release": "yarn run merge-to-master && git push",
+    "postrelease": "yarn run master-to-dev && git push"
   },
   "ava": {
     "babel": "inherit",
@@ -55,6 +60,7 @@
     "ava": "^0.24.0",
     "browser-env": "^3.2.4",
     "conventional-changelog-eslint": "^0.3.0",
+    "del-cli": "^1.1.0",
     "npm-run-all": "^4.1.2",
     "require-extension-hooks": "^0.3.2",
     "require-extension-hooks-babel": "^0.1.1",
