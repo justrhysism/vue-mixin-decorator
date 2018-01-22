@@ -23,7 +23,7 @@
     "travis-deploy-once": "travis-deploy-once",
     "prerelease": "git diff-index --quiet HEAD -- && git checkout dev && git pull && yarn test && yarn run build",
     "release": "git checkout master && git pull && git merge dev && git push",
-    "postrelease": "git checkout dev"
+    "postrelease": "git checkout dev && git merge master && git push"
   },
   "ava": {
     "babel": "inherit",
