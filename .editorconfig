@@ -1,0 +1,11 @@
+; EditorConfig file
+
+; Tab space indentation
+[*]
+indent_style = tab
+insert_final_newline = true
+
+; Tab space indentation
+[{package.json,*.yml}]
+indent_style = space
+indent_size = 2
