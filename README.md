@@ -39,117 +39,71 @@ and an extension class:
 
 _Note: `@Mixin` is `@Component` exported from `vue-class-component`._
 
+### Single Mixin
+
 ```typescript
-import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+import Vue from 'vue';
+import { Component, Mixin, Mixins } from 'vue-mixin-decorator';
 
-const s = Symbol('baz')
+@Mixin
+class MyMixin extends Vue {
+  created() {
+    console.log('Mixin created()');
+  }
 
-@Component
-export class MyComponent extends Vue {
-
-  @Emit()
-  addToCount(n: number){ this.count += n }
-
-  @Emit('reset')
-  resetCount(){ this.count = 0 }
-
-  @Inject() foo: string
-  @Inject('bar') bar: string
-  @Inject(s) baz: string
-
-  @Model('change') checked: boolean
-
-  @Prop()
-  propA: number
-
-  @Prop({ default: 'default value' })
-  propB: string
-
-  @Prop([String, Boolean])
-  propC: string | boolean
-
-  @Provide() foo = 'foo'
-  @Provide('bar') baz = 'bar'
-
-  @Watch('child')
-  onChildChanged(val: string, oldVal: string) { }
-
-  @Watch('person', { immediate: true, deep: true })
-  onPersonChanged(val: Person, oldVal: Person) { }
+  mixinMethod() {
+    console.log('Mixin method called.');
+  }
 }
 
-```
-
-is equivalent to
-
-```js
-const s = Symbol('baz')
-
-export const MyComponent = Vue.extend({
-  name: 'MyComponent',
-  inject: {
-    foo: 'foo',
-    bar: 'bar',
-    [s]: s
-  },
-  model: {
-    prop: 'checked',
-    event: 'change'
-  },
-  props: {
-    checked: Boolean,
-    propA: Number,
-    propB: {
-      type: String,
-      default: 'default value'
-    },
-    propC: [String, Boolean],
-  },
-  data () {
-    return {
-      foo: 'foo',
-      baz: 'bar'
-    }
-  },
-  provide () {
-    return {
-      foo: this.foo,
-      bar: this.baz
-    }
-  },
-  methods: {
-    addToCount(n){
-      this.count += n
-      this.$emit("add-to-count", n)
-    },
-    resetCount(){
-      this.count = 0
-      this.$emit("reset")
-    },
-    onChildChanged(val, oldVal) { },
-    onPersonChanged(val, oldVal) { }
-  },
-  watch: {
-    'child': {
-      handler: 'onChildChanged',
-      immediate: false,
-      deep: false
-    },
-    'person': {
-      handler: 'onPersonChanged',
-      immediate: true,
-      deep: true
-    }
+@Component
+class MyComponent extends Mixins<MyMixin>(MyMixin) {
+  created() {
+    this.mixinMethod();
   }
-})
+}
 ```
 
-## emitDecoratorMetadata
+### Multiple Mixins
+```typescript
+import Vue from 'vue';
+import { Component, Mixin, Mixins } from 'vue-mixin-decorator';
 
-As you can see at `propA` and `propB`, the type can be inferred automatically when it's a simple type. For more complex types like enums you do need to specify it specifically.
-Also this library needs to have `emitDecoratorMetadata` set to `true` for this to work.
+@Mixin
+class MyMixin extends Vue {
+  created() {
+    console.log('Mixin created()');
+  }
+
+  mixinMethod() {
+    console.log('Mixin method called.');
+  }
+}
+
+@Mixin
+class MyOtherMixin extends Vue {
+  created() {
+    console.log('Other mixin created()');
+  }
+
+  otherMixinMethod() {
+    console.log('Other mixin method called.');
+  }
+}
+
+// Create an interface extending the mixins to provide
+interface IMixinInterface extends MyMixin, MyOtherMixin {}
+
+@Component
+class MyComponent extends Mixins<IMixinInterface>(MyMixin, MyOtherMixin) {
+  created() {
+    this.mixinMethod();
+    this.otherMixinMethod();
+  }
+}
+```
 
 ## See also
 
-[vue-property-decorator](https://github.com/kaorun343/vue-property-decorator)
-[vuex-class](https://github.com/ktsn/vuex-class/)
+* [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator)
+* [vuex-class](https://github.com/ktsn/vuex-class/)
