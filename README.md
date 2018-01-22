@@ -1,6 +1,6 @@
 # Vue Mixin Decorator
 
-[![npm](https://img.shields.io/npm/v/vue-mixin-decorator.svg)](https://www.npmjs.com/package/vue-mixin-decorator)
+[![npm](https://img.shields.io/npm/v/vue-mixin-decorator.svg)](https://www.npmjs.com/package/vue-mixin-decorator) [![Build Status](https://travis-ci.org/justrhysism/vue-mixin-decorator.svg?branch=master)](https://travis-ci.org/justrhysism/vue-mixin-decorator)
 
 This library fully depends on [vue-class-component](https://github.com/vuejs/vue-class-component).
 

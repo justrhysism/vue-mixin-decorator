@@ -14,7 +14,7 @@
     "test": "test"
   },
   "scripts": {
-    "build": "run-p build:*",
+    "build": "run-s build:*",
     "build:ts": "tsc -p src/tsconfig.json",
     "build:umd": "rollup -c",
     "pretest": "tsc",
