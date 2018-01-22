@@ -1,15 +1,14 @@
 export default {
-	input: 'lib/vue-mixin-decorator.js',
-	name: 'VueMixinDecorator',
+	input: 'lib/index.js',
 	output: {
-		file: 'lib/vue-mixin-decorator.umd.js',
+		name: 'vue-mixin-decorator',
+		file: 'dist/vue-mixin-decorator.umd.js',
 		format: 'umd',
+		globals: {
+			vue: 'Vue',
+			'vue-class-component': 'VueClassComponent',
+		},
+		exports: 'named',
 	},
 	external: ['vue', 'vue-class-component'],
-	exports: 'named',
-	name: 'vue-mixin-decorator',
-	globals: {
-		vue: 'Vue',
-		'vue-class-component': 'VueClassComponent',
-	},
 };

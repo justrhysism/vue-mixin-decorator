@@ -2,7 +2,7 @@
   "name": "vue-mixin-decorator",
   "version": "0.0.0",
   "description": "Mixin decorators for Vue Component",
-  "main": "lib/vue-mixin-decorator.umd.js",
+  "main": "dist/vue-mixin-decorator.umd.js",
   "keywords": [
     "vue",
     "typescript",
@@ -40,7 +40,8 @@
     ]
   },
   "files": [
-    "lib"
+    "lib",
+    "dist"
   ],
   "devDependencies": {
     "@types/node": "^8.0.47",
@@ -60,7 +61,7 @@
     "typescript": "^2.6.1",
     "vue": "^2.5.3"
   },
-  "typings": "./lib/vue-mixin-decorator.d.ts",
+  "typings": "./lib/index.d.ts",
   "dependencies": {
     "vue-class-component": "^6.1.0"
   },
