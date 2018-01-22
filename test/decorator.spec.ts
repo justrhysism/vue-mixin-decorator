@@ -1,81 +1,136 @@
+import test from 'ava';
 import Vue from 'vue';
+import {mount} from '@vue/test-utils';
+import {spy} from 'sinon';
+
 import { Component, Mixin, Mixins } from '../src';
-import { test as Test } from 'ava';
-const test: typeof Test = require('ava').test;
 
 test('@Component decorator test', t => {
 	// Arrange
-	let created = false;
-	let destroyed = false;
+	const created = spy();
+	const destroyed = spy();
 
-	// Act
 	@Component
-	class Comp extends Vue {
+	class MyComp extends Vue {
 		created() {
-			created = true;
+			created();
 		}
+
 		destroyed() {
-			destroyed = true;
+			destroyed();
 		}
 	}
 
-	const comp = new Comp();
-	const destroyedBefore = destroyed;
-	comp.$destroy();
-	const destroyedAfter = destroyed;
+	// Act
+	const wrapper = mount(MyComp);
+	const destroyedBefore = destroyed.notCalled;
+	wrapper.destroy();
+	const destroyedAfter = destroyed.calledOnce;
 
 	// Assert
-	t.true(created);
-	t.false(destroyedBefore);
+	t.true(wrapper.isVueInstance());
+	t.true(created.calledOnce);
+	t.true(destroyedBefore);
 	t.true(destroyedAfter);
 });
 
-/*test('@Emit decorator test', t => {
+test('@Mixin decorator test', t => {
+	// Arrange
+	@Mixin
+	class MyMixin extends Vue {}
 
-  @Component
-  class Child extends Vue {
-    count = 0
+	// Act
+	const wrapper = mount(MyMixin);
 
-    @Emit('reset') resetCount() {
-      this.count = 0
-    }
+	// Assert
+	t.true(wrapper.isVueInstance());
+});
 
-    @Emit() increment(n: number) {
-      this.count += n
-    }
+test('Single Mixins test', t => {
+	// Arrange
+	const mixinOneCreated = spy();
+	const mixinOneCalledFromComponent = spy();
 
-    @Emit() canceled() {
-      return false
-    }
-  }
-  const child = new Child()
+	@Mixin
+	class MyMixinOne extends Vue {
+		created() {
+			mixinOneCreated();
+		}
 
-  let result = {
-    called: false,
-    event: '',
-    arg: 0
-  }
+		mixinOneMethod() {
+			mixinOneCalledFromComponent();
+		}
+	}
 
-  child.$emit = (event, ...args) => {
-    result.called = true
-    result.event = event
-    result.arg = args[0]
+	@Component
+	class MyComponent extends Mixins<MyMixinOne>(MyMixinOne) {
+		created() {
+			this.mixinOneMethod();
+		}
+	}
 
-    return child
-  }
+	// Act
+	const wrapper = mount<MyComponent>(MyComponent);
 
-  child.resetCount()
-  t.is(result.called, true)
-  t.is(result.event, 'reset')
-  t.is(result.arg, undefined)
+	// Assert
+	t.true(wrapper.isVueInstance());
+	t.true(mixinOneCreated.calledOnce);
+	t.true(mixinOneCalledFromComponent.calledOnce);
+});
 
-  result.called = false
-  child.increment(30)
-  t.is(result.event, 'increment')
-  t.is(result.arg, 30)
+test('Multiple Mixins test', t => {
+	// Arrange
+	const mixinOneCreated = spy();
+	const mixinTwoCreated = spy();
+	const mixinOneCalledFromComponent = spy();
+	const mixinTwoCalledFromComponent = spy();
 
-  result.called = false
-  child.canceled()
-  t.is(result.called, false)
+	@Mixin
+	class MyMixinOne extends Vue {
+		created () {
+			mixinOneCreated();
+		}
 
-})*/
+		mixinOneMethod () {
+			mixinOneCalledFromComponent();
+		}
+	}
+
+	@Mixin
+	class MyMixinTwo extends Vue {
+		created() {
+			mixinTwoCreated();
+		}
+
+		mixinTwoMethod() {
+			mixinTwoCalledFromComponent();
+		}
+	}
+
+	/*
+		To handle multiple mixins (complete with Typescript completion)
+		an interface needs to be created extending your mixins.
+	 */
+	interface IMixinInterface extends MyMixinOne, MyMixinTwo {}
+
+	/*
+		Provide `Mixins` with the interface
+	 */
+	@Component
+	class MyComponent extends Mixins<IMixinInterface>(MyMixinOne, MyMixinTwo) {
+		created () {
+			this.mixinOneMethod();
+			this.mixinTwoMethod();
+		}
+	}
+
+	// Act
+	const wrapper = mount<MyComponent>(MyComponent);
+
+	// Assert
+	t.true(wrapper.isVueInstance());
+	t.true(mixinOneCreated.calledOnce);
+	t.true(mixinTwoCreated.calledOnce);
+	t.true(mixinOneCalledFromComponent.calledOnce);
+	t.true(mixinTwoCalledFromComponent.calledOnce);
+});

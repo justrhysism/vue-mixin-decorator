@@ -5,40 +5,39 @@
 
 // Third Party Dependencies
 import Vue from 'vue';
+import {VueClass} from 'vue-class-component/lib/declarations';
 
-// Local Dependencies
-import { VClass } from './declarations';
 
 /**
  * Extend a Vue Component with mixins
- * @param {VClass<T extends Vue>} parent
- * @returns {VClass<T extends Vue>}
+ * @param {VueClass<T extends Vue>} parent
+ * @returns {VueClass<T extends Vue>}
  * @constructor
  */
-export function Mixins<T extends Vue>(parent: VClass<T>): VClass<T>;
+export function Mixins<T extends Vue>(parent: VueClass<T>): VueClass<T>;
 
 /**
  * Extend a Vue Component with mixins
- * @param {VClass<Vue>} parent
- * @param {VClass<Vue>} mixins
- * @returns {VClass<T extends Vue>}
+ * @param {VueClass<Vue>} parent
+ * @param {VueClass<Vue>} mixins
+ * @returns {VueClass<T extends Vue>}
  * @constructor
  */
 export function Mixins<T extends Vue>(
-	parent: VClass<Vue>,
-	...mixins: VClass<Vue>[]
-): VClass<T>;
+	parent: VueClass<Vue>,
+	...mixins: VueClass<Vue>[]
+): VueClass<T>;
 
 /**
  *
  * @param {typeof Vue} parent
  * @param {typeof Vue} mixins
- * @returns {VClass<T extends Vue>}
+ * @returns {VueClass<T extends Vue>}
  * @constructor
  */
 export function Mixins<T extends Vue>(
 	parent: typeof Vue,
 	...mixins: (typeof Vue)[]
-): VClass<T> {
+): VueClass<T> {
 	return parent.extend({ mixins }) as any;
 }
