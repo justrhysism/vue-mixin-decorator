@@ -59,7 +59,7 @@
     "@vue/test-utils": "^1.0.0-beta.10",
     "ava": "^0.24.0",
     "browser-env": "^3.2.4",
-    "conventional-changelog-eslint": "^0.3.0",
+    "conventional-changelog-eslint": "^1.0.0",
     "del-cli": "^1.1.0",
     "npm-run-all": "^4.1.2",
     "require-extension-hooks": "^0.3.2",
