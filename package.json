@@ -32,8 +32,7 @@
     "postrelease": "yarn run master-to-dev && git push"
   },
   "babel": {
-    "presets": [
-    ]
+    "presets": []
   },
   "files": [
     "lib",
