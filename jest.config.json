@@ -1,0 +1,10 @@
+{
+	"transform": {
+		"^.+\\.tsx?$": "ts-jest",
+		"^.+\\.jsx?$": "babel-jest"
+	},
+	"transformIgnorePatterns": ["/node_modules/(?!lodash-es)"],
+	"testRegex": "(/test/.*(spec))\\.(jsx?|tsx?)$",
+	"moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+	"moduleDirectories": ["node_modules"]
+}
