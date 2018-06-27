@@ -5,14 +5,19 @@ import { spy } from 'sinon';
 
 import { Component, Mixin, Mixins } from '../src';
 
+const componentOptions = {
+	template: '<div />'
+};
+
 describe('@Component', () => {
 	it('should call `created()` and `destroyed()` lifecycle methods', () => {
 		// Arrange
 		const created = spy();
 		const destroyed = spy();
 
-		@Component
+		@Component(componentOptions)
 		class MyComp extends Vue {
+
 			created() {
 				created();
 			}
@@ -39,7 +44,7 @@ describe('@Component', () => {
 describe('@Mixin', () => {
 	test('decorator test', () => {
 		// Arrange
-		@Mixin
+		@Mixin(componentOptions)
 		class MyMixin extends Vue {}
 
 		// Act
@@ -65,7 +70,7 @@ describe('@Mixin', () => {
 			}
 		}
 
-		@Component
+		@Component(componentOptions)
 		class MyComponent extends Mixins<MyMixinOne>(MyMixinOne) {
 			created() {
 				this.mixinOneMethod();
@@ -119,7 +124,7 @@ describe('@Mixin', () => {
 		/*
 			Provide `Mixins` with the interface
 		 */
-		@Component
+		@Component(componentOptions)
 		class MyComponent extends Mixins<IMixinInterface>(MyMixinOne, MyMixinTwo) {
 			created() {
 				this.mixinOneMethod();

@@ -64,7 +64,9 @@
     "travis-deploy-once": "^5.0.0",
     "ts-jest": "^22.4.6",
     "typescript": "^2.6.1",
-    "vue": "^2.5.13"
+    "vue": "^2.5.13",
+    "vue-jest": "^2.6.0",
+    "vue-template-compiler": "^2.5.16"
   },
   "dependencies": {
     "vue-class-component": "^6.1.0"

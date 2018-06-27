@@ -1,10 +1,14 @@
 {
 	"transform": {
 		"^.+\\.tsx?$": "ts-jest",
-		"^.+\\.jsx?$": "babel-jest"
+		"^.+\\.jsx?$": "babel-jest",
+		".*\\.(vue)$": "vue-jest"
 	},
 	"transformIgnorePatterns": ["/node_modules/(?!lodash-es)"],
 	"testRegex": "(/test/.*(spec))\\.(jsx?|tsx?)$",
-	"moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
-	"moduleDirectories": ["node_modules"]
+	"moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node", "vue"],
+	"moduleDirectories": ["node_modules"],
+	"moduleNameMapper": {
+		"^@/(.*)$": "./src/$1"
+	}
 }
