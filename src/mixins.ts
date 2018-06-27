@@ -5,8 +5,7 @@
 
 // Third Party Dependencies
 import Vue from 'vue';
-import {VueClass} from 'vue-class-component/lib/declarations';
-
+import { VueClass } from 'vue-class-component/lib/declarations';
 
 /**
  * Extend a Vue Component with mixins
