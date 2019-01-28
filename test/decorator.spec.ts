@@ -1,9 +1,7 @@
 import 'jest';
-import Vue from 'vue';
 import { mount } from '@vue/test-utils';
-import { spy } from 'sinon';
 
-import { Component, Mixin, Mixins } from '../src';
+import { Vue, Component, Mixin, Mixins } from './mediator';
 
 const componentOptions = {
 	template: '<div />'
@@ -12,32 +10,33 @@ const componentOptions = {
 describe('@Component', () => {
 	it('should call `created()` and `destroyed()` lifecycle methods', () => {
 		// Arrange
-		const created = spy();
-		const destroyed = spy();
+		const first = Symbol('first');
+		const second = Symbol('second');
+		const third = Symbol('third');
+		const spy = jest.fn();
 
 		@Component(componentOptions)
 		class MyComp extends Vue {
 
 			created() {
-				created();
+				spy(first);
 			}
 
 			destroyed() {
-				destroyed();
+				spy(third);
 			}
 		}
 
 		// Act
 		const wrapper = mount(MyComp);
-		const destroyedBefore = destroyed.notCalled;
+		spy(second);
 		wrapper.destroy();
-		const destroyedAfter = destroyed.calledOnce;
 
 		// Assert
 		expect(wrapper.isVueInstance()).toBe(true);
-		expect(created.calledOnce).toBe(true);
-		expect(destroyedBefore).toBe(true);
-		expect(destroyedAfter).toBe(true);
+		expect(spy).toHaveBeenNthCalledWith(1, first);
+		expect(spy).toHaveBeenNthCalledWith(2, second);
+		expect(spy).toHaveBeenNthCalledWith(3, third);
 	});
 });
 
@@ -56,8 +55,8 @@ describe('@Mixin', () => {
 
 	it('should bind a single mixin', () => {
 		// Arrange
-		const mixinOneCreated = spy();
-		const mixinOneCalledFromComponent = spy();
+		const mixinOneCreated = jest.fn();
+		const mixinOneCalledFromComponent = jest.fn();
 
 		@Mixin
 		class MyMixinOne extends Vue {
@@ -82,16 +81,16 @@ describe('@Mixin', () => {
 
 		// Assert
 		expect(wrapper.isVueInstance()).toBe(true);
-		expect(mixinOneCreated.calledOnce).toBe(true);
-		expect(mixinOneCalledFromComponent.calledOnce).toBe(true);
+		expect(mixinOneCreated).toBeCalledTimes(1);
+		expect(mixinOneCalledFromComponent).toBeCalledTimes(1);
 	});
 
 	it('should bind multiple mixins', () => {
 		// Arrange
-		const mixinOneCreated = spy();
-		const mixinTwoCreated = spy();
-		const mixinOneCalledFromComponent = spy();
-		const mixinTwoCalledFromComponent = spy();
+		const mixinOneCreated = jest.fn();
+		const mixinTwoCreated = jest.fn();
+		const mixinOneCalledFromComponent = jest.fn();
+		const mixinTwoCalledFromComponent = jest.fn();
 
 		@Mixin
 		class MyMixinOne extends Vue {
@@ -137,9 +136,9 @@ describe('@Mixin', () => {
 
 		// Assert
 		expect(wrapper.isVueInstance()).toBe(true);
-		expect(mixinOneCreated.calledOnce).toBe(true);
-		expect(mixinTwoCreated.calledOnce).toBe(true);
-		expect(mixinOneCalledFromComponent.calledOnce).toBe(true);
-		expect(mixinTwoCalledFromComponent.calledOnce).toBe(true);
+		expect(mixinOneCreated).toBeCalledTimes(1);
+		expect(mixinTwoCreated).toBeCalledTimes(1);
+		expect(mixinOneCalledFromComponent).toBeCalledTimes(1);
+		expect(mixinTwoCalledFromComponent).toBeCalledTimes(1);
 	});
 });
