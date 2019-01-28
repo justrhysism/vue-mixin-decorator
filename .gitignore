@@ -86,6 +86,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# IntelliJ
+.idea/
+
 lib
 src/*.js
 *.map
