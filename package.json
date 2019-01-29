@@ -80,8 +80,5 @@
     "url": "https://github.com/justrhysism/vue-mixin-decorator/issues"
   },
   "homepage": "https://github.com/justrhysism/vue-mixin-decorator#readme",
-  "private": false,
-  "release": {
-    "analyzeCommits": "sgc-commit-analyzer"
-  }
+  "private": false
 }
