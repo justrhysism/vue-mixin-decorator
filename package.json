@@ -67,6 +67,8 @@
     "vue-template-compiler": "^2.5.16"
   },
   "dependencies": {
+    "global": "^4.3.2",
+    "prettier": "^1.16.1",
     "vue-class-component": "^6.1.0"
   },
   "peerDependencies": {
