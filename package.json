@@ -59,6 +59,7 @@
     "rollup-plugin-typescript": "^1.0.0",
     "semantic-git-commit-cli": "^3.0.2",
     "semantic-release": "^15.0.0",
+    "sgc-commit-analyzer": "^1.0.1",
     "travis-deploy-once": "^5.0.0",
     "ts-jest": "^23.10.5",
     "tslib": "^1.9.3",
@@ -80,5 +81,8 @@
     "url": "https://github.com/justrhysism/vue-mixin-decorator/issues"
   },
   "homepage": "https://github.com/justrhysism/vue-mixin-decorator#readme",
-  "private": false
+  "private": false,
+  "release": {
+    "analyzeCommits": "sgc-commit-analyzer"
+  }
 }
