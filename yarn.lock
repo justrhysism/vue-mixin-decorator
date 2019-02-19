@@ -8185,10 +8185,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vue-class-component@^6.1.0:
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-6.3.2.tgz#e6037e84d1df2af3bde4f455e50ca1b9eec02be6"
-  integrity sha512-cH208IoM+jgZyEf/g7mnFyofwPDJTM/QvBNhYMjqGB8fCsRyTf68rH2ISw/G20tJv+5mIThQ3upKwoL4jLTr1A==
+vue-class-component@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-7.0.0.tgz#b51ed28f95fb226dcc8da54ac1fbc64416755776"
+  integrity sha512-m3QGgzae4DWIqaVF5qEW77oECssBL78YEOCaWHvT5DBSTm++Y9a9U+cygxBZnZhbpk8CCjRY6ayb1TC+QFPlSQ==
 
 vue-template-compiler@^2.5.16:
   version "2.5.22"
