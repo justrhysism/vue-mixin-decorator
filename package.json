@@ -69,7 +69,7 @@
   "dependencies": {
     "global": "^4.3.2",
     "prettier": "^1.16.1",
-    "vue-class-component": "^6.1.0"
+    "vue-class-component": "^7.1.0"
   },
   "peerDependencies": {
     "typescript": ">= 2 < 4",
