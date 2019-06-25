@@ -68,7 +68,6 @@
     "vue-template-compiler": "^2.5.16"
   },
   "dependencies": {
-    "global": "^4.3.2",
     "vue-class-component": "^7.1.0"
   },
   "peerDependencies": {
