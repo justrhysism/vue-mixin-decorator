@@ -1998,9 +1998,9 @@ braces@^3.0.1:
     fill-range "^7.0.1"
 
 browser-env@^3.2.4:
-  version "3.2.6"
-  resolved "https://registry.yarnpkg.com/browser-env/-/browser-env-3.2.6.tgz#a10872b92a25b02ddd17de76ca479744de82d8e7"
-  integrity sha512-FJ1dwr5gWEP2Igv1/acvLaMPUTwIqdBJsAL3prDfcjRG9G5/y70WN6M8uCNIyITHC+mMj0W9RkkCz9DFE5s4MQ==
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/browser-env/-/browser-env-3.3.0.tgz#cc7668a14cc726c2f8e069d9de0926b7a9bdac43"
+  integrity sha512-XO+rbi2f9DtuoYgnN/Um80Qz/m033C3fKdUxKbbNs+jCshezRENMlG+QGT9qZyZE4b/KYTwUu6RNMCavGhPdEQ==
   dependencies:
     window "4.2.6"
 
