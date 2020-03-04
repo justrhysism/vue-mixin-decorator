@@ -7701,9 +7701,9 @@ saxes@^3.1.5:
     xmlchars "^1.3.1"
 
 semantic-git-commit-cli@^3.0.2:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/semantic-git-commit-cli/-/semantic-git-commit-cli-3.5.0.tgz#504d4d53b0323ad596aebe32b55913dec23d07c4"
-  integrity sha512-bWKBDxyMDFaNkHPkOtvmyudIR4nStphy7J5GBDb+0vT2oxQe8xeAcHoo3ATgBH9D1gN48Jf7TCSSRx7eFTeBOA==
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/semantic-git-commit-cli/-/semantic-git-commit-cli-3.5.2.tgz#458fe568882bd1cac76b4cea80a7d17f3e5eaf8d"
+  integrity sha512-i3Kjghn+ky8ekFl9l/wLp/8XHzvXLkTzxRXamFFTbfc71aY/iuWboyfoIXH3sZBL4gh/3deo+lMFC+OQUQ+Clg==
   dependencies:
     chalk "^1.1.3"
     execa "^0.6.1"
