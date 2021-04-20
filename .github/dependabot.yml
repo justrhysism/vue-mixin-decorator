@@ -9,3 +9,6 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    ignore:
+        # Otherwise Node typings get out of sync
+      - dependency-name: "@types/node"
