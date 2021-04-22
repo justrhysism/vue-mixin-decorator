@@ -71,7 +71,7 @@
     "vue-class-component": "^7.1.0"
   },
   "peerDependencies": {
-    "typescript": ">= 2 < 4",
+    "typescript": ">= 2",
     "vue": "^2.5.0"
   },
   "repository": "git+https://github.com/justrhysism/vue-mixin-decorator.git",
