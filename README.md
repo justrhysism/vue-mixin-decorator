@@ -6,6 +6,9 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/justrhysism/vue-mixin-decorator.svg)](https://greenkeeper.io/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
+
+> PLEASE NOTE: As Vue3 has moved away from class components, this project is archived and will not be recieving further updates.
+
 This library fully depends on [vue-class-component](https://github.com/vuejs/vue-class-component).
 
 Most ideas and code are ~~stolen~~ _borrowed_ from [@HerringtonDarkholme](https://github.com/HerringtonDarkholme)
